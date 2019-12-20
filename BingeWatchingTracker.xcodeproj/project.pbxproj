@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		387BC0BA23AD84C6000A1B9A /* BingleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387BC0B923AD84C6000A1B9A /* BingleListTableViewController.swift */; };
+		387BC0BC23AD8578000A1B9A /* BingeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387BC0BB23AD8578000A1B9A /* BingeController.swift */; };
+		387BC0BF23AD85D2000A1B9A /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387BC0BE23AD85D2000A1B9A /* Show.swift */; };
+		387BC0C123AD8618000A1B9A /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387BC0C023AD8618000A1B9A /* Episode.swift */; };
+		387BC0C323AD8665000A1B9A /* BingeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387BC0C223AD8665000A1B9A /* BingeTableViewCell.swift */; };
+		387BC0C523AD86A6000A1B9A /* BingeTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387BC0C423AD86A6000A1B9A /* BingeTableViewCellDelegate.swift */; };
 		389350AA23A9636800AC6BA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389350A923A9636800AC6BA9 /* AppDelegate.swift */; };
 		389350AC23A9636800AC6BA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389350AB23A9636800AC6BA9 /* SceneDelegate.swift */; };
 		389350B123A9636800AC6BA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 389350AF23A9636800AC6BA9 /* Main.storyboard */; };
@@ -15,6 +21,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		387BC0B923AD84C6000A1B9A /* BingleListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingleListTableViewController.swift; sourceTree = "<group>"; };
+		387BC0BB23AD8578000A1B9A /* BingeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingeController.swift; sourceTree = "<group>"; };
+		387BC0BE23AD85D2000A1B9A /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Show.swift; path = BingeWatchingTracker/Show.swift; sourceTree = SOURCE_ROOT; };
+		387BC0C023AD8618000A1B9A /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Episode.swift; path = BingeWatchingTracker/Episode.swift; sourceTree = SOURCE_ROOT; };
+		387BC0C223AD8665000A1B9A /* BingeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingeTableViewCell.swift; sourceTree = "<group>"; };
+		387BC0C423AD86A6000A1B9A /* BingeTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingeTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		389350A623A9636800AC6BA9 /* BingeWatchingTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BingeWatchingTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		389350A923A9636800AC6BA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		389350AB23A9636800AC6BA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +47,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		387BC0B823AD8447000A1B9A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				387BC0B923AD84C6000A1B9A /* BingleListTableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		387BC0BD23AD8584000A1B9A /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				387BC0BB23AD8578000A1B9A /* BingeController.swift */,
+			);
+			path = "Model Controller";
+			sourceTree = "<group>";
+		};
 		3893509D23A9636800AC6BA9 = {
 			isa = PBXGroup;
 			children = (
@@ -54,12 +82,16 @@
 		389350A823A9636800AC6BA9 /* BingeWatchingTracker */ = {
 			isa = PBXGroup;
 			children = (
+				387BC0BD23AD8584000A1B9A /* Model Controller */,
+				387BC0B823AD8447000A1B9A /* View Controllers */,
 				389350BE23A9793F00AC6BA9 /* Models */,
 				389350BF23A9794D00AC6BA9 /* Views */,
 				389350BD23A9792B00AC6BA9 /* Controllers */,
 				389350C023A9797C00AC6BA9 /* Storyboards */,
 				389350C123A979A200AC6BA9 /* Resources */,
 				389350B723A9636C00AC6BA9 /* Info.plist */,
+				387BC0C223AD8665000A1B9A /* BingeTableViewCell.swift */,
+				387BC0C423AD86A6000A1B9A /* BingeTableViewCellDelegate.swift */,
 			);
 			path = BingeWatchingTracker;
 			sourceTree = "<group>";
@@ -74,6 +106,8 @@
 		389350BE23A9793F00AC6BA9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				387BC0BE23AD85D2000A1B9A /* Show.swift */,
+				387BC0C023AD8618000A1B9A /* Episode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -176,7 +210,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				389350AA23A9636800AC6BA9 /* AppDelegate.swift in Sources */,
+				387BC0C123AD8618000A1B9A /* Episode.swift in Sources */,
+				387BC0C523AD86A6000A1B9A /* BingeTableViewCellDelegate.swift in Sources */,
+				387BC0BC23AD8578000A1B9A /* BingeController.swift in Sources */,
+				387BC0C323AD8665000A1B9A /* BingeTableViewCell.swift in Sources */,
 				389350AC23A9636800AC6BA9 /* SceneDelegate.swift in Sources */,
+				387BC0BF23AD85D2000A1B9A /* Show.swift in Sources */,
+				387BC0BA23AD84C6000A1B9A /* BingleListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
