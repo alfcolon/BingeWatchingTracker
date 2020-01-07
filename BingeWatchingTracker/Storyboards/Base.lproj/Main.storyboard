@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Show Detail-->
+        <!--Episodes Scene-->
         <scene sceneID="xJN-ea-j8d">
             <objects>
-                <viewController title="Show Detail" id="OyW-4b-xBd" sceneMemberID="viewController">
+                <viewController title="Show Detail" id="OyW-4b-xBd" userLabel="Episodes Scene" customClass="ShowDetailViewController" customModule="BingeWatchingTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="l8p-p5-suW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,17 +22,32 @@
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QZN-yo-Zjo">
-                                <rect key="frame" x="0.0" y="85" width="414" height="128"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_0829" translatesAutoresizingMaskIntoConstraints="NO" id="QZN-yo-Zjo">
+                                <rect key="frame" x="0.0" y="129" width="414" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="HsT-J7-zvN"/>
                                 </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                             </imageView>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" highlighted="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LEw-IE-2cJ">
+                                <rect key="frame" x="314" y="129" width="100" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="F1o-f1-GSy"/>
+                                    <constraint firstAttribute="width" secondItem="LEw-IE-2cJ" secondAttribute="height" multiplier="1:1" id="pt7-hu-Taz"/>
+                                </constraints>
+                                <state key="normal">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="favoriteTapped:" destination="OyW-4b-xBd" eventType="touchUpInside" id="12a-G5-nKI"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EW8-jd-RvQ">
                                 <rect key="frame" x="0.0" y="213" width="414" height="649"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EpisodeCell" id="1mY-Kx-atN">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EpisodeCell" id="1mY-Kx-atN" customClass="EpisodeTableViewCell" customModule="BingeWatchingTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="51.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1mY-Kx-atN" id="H6t-GE-J4d">
@@ -47,6 +62,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rT7-VD-STt">
                                                     <rect key="frame" x="355" y="10" width="51" height="31.5"/>
+                                                    <connections>
+                                                        <action selector="bingedToggleButtonPressed:" destination="1mY-Kx-atN" eventType="valueChanged" id="g3t-Yl-HZi"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -59,14 +77,22 @@
                                                 <constraint firstItem="fpP-zl-feT" firstAttribute="top" secondItem="H6t-GE-J4d" secondAttribute="topMargin" id="vkS-I3-ixf"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="bingedToggle" destination="rT7-VD-STt" id="kgG-gq-J5Z"/>
+                                            <outlet property="episodeLabel" destination="fpP-zl-feT" id="A2f-d8-3jc"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="OyW-4b-xBd" id="BXX-pa-edO"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="pXJ-Pk-Bp5" firstAttribute="trailing" secondItem="QZN-yo-Zjo" secondAttribute="trailing" id="397-dt-YgA"/>
                             <constraint firstItem="QZN-yo-Zjo" firstAttribute="leading" secondItem="pXJ-Pk-Bp5" secondAttribute="leading" id="4zm-0e-8Bv"/>
+                            <constraint firstItem="LEw-IE-2cJ" firstAttribute="top" secondItem="QZN-yo-Zjo" secondAttribute="top" id="EnF-qo-bKq"/>
                             <constraint firstItem="pXJ-Pk-Bp5" firstAttribute="trailing" secondItem="EW8-jd-RvQ" secondAttribute="trailing" id="G2o-gW-JoO"/>
                             <constraint firstItem="EW8-jd-RvQ" firstAttribute="top" secondItem="QZN-yo-Zjo" secondAttribute="bottom" id="J3X-mY-5d1"/>
                             <constraint firstItem="pXJ-Pk-Bp5" firstAttribute="bottom" secondItem="EW8-jd-RvQ" secondAttribute="bottom" id="K1w-IN-YG6"/>
@@ -75,10 +101,17 @@
                             <constraint firstItem="pXJ-Pk-Bp5" firstAttribute="trailing" secondItem="iDO-bG-t8N" secondAttribute="trailing" id="few-df-kct"/>
                             <constraint firstItem="QZN-yo-Zjo" firstAttribute="top" secondItem="iDO-bG-t8N" secondAttribute="bottom" id="gpv-jR-rmn"/>
                             <constraint firstItem="iDO-bG-t8N" firstAttribute="leading" secondItem="pXJ-Pk-Bp5" secondAttribute="leading" id="imu-pG-pmT"/>
+                            <constraint firstItem="LEw-IE-2cJ" firstAttribute="trailing" secondItem="QZN-yo-Zjo" secondAttribute="trailing" id="oP9-bJ-T0q"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pXJ-Pk-Bp5"/>
                     </view>
                     <navigationItem key="navigationItem" title="Show Detail" id="Ud2-hN-2Z8"/>
+                    <connections>
+                        <outlet property="favoriteButton" destination="LEw-IE-2cJ" id="2cp-GJ-vMb"/>
+                        <outlet property="imageView" destination="QZN-yo-Zjo" id="na2-jp-GVB"/>
+                        <outlet property="tableView" destination="EW8-jd-RvQ" id="pE5-lG-iFX"/>
+                        <outlet property="titleLabel" destination="iDO-bG-t8N" id="Vn9-wf-u5b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jQY-iZ-giH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -87,7 +120,7 @@
         <!--Binge List-->
         <scene sceneID="fEg-4z-pOm">
             <objects>
-                <viewController id="er1-6U-8eE" customClass="BingleListTableViewController" customModule="BingeWatchingTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="er1-6U-8eE" customClass="BingeListViewController" customModule="BingeWatchingTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AGv-GY-FXZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,39 +129,47 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="691"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShowCell" id="hje-F8-9hh" customClass="BingeTableViewCell" customModule="BingeWatchingTracker" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShowCell" id="hje-F8-9hh" customClass="ShowTableViewCell" customModule="BingeWatchingTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hje-F8-9hh" id="IzN-qs-USD">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRv-a0-YiR">
-                                                    <rect key="frame" x="28" y="11.5" width="358" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4q-IX-cbb">
+                                                    <rect key="frame" x="20" y="11" width="374" height="21.5"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="CRv-a0-YiR" secondAttribute="trailing" constant="8" id="22Z-Rc-kRS"/>
-                                                <constraint firstItem="CRv-a0-YiR" firstAttribute="centerY" secondItem="IzN-qs-USD" secondAttribute="centerY" id="KpW-ew-FdB"/>
-                                                <constraint firstItem="CRv-a0-YiR" firstAttribute="leading" secondItem="IzN-qs-USD" secondAttribute="leadingMargin" constant="8" id="c0E-X8-dcU"/>
-                                                <constraint firstItem="CRv-a0-YiR" firstAttribute="centerX" secondItem="IzN-qs-USD" secondAttribute="centerX" id="c53-W1-NMR"/>
+                                                <constraint firstItem="Y4q-IX-cbb" firstAttribute="top" secondItem="IzN-qs-USD" secondAttribute="topMargin" id="5VL-IO-kJV"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Y4q-IX-cbb" secondAttribute="bottom" id="5dF-NV-w6f"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Y4q-IX-cbb" secondAttribute="trailing" id="GRe-Om-m6k"/>
+                                                <constraint firstItem="Y4q-IX-cbb" firstAttribute="leading" secondItem="IzN-qs-USD" secondAttribute="leadingMargin" id="y2z-oo-Ocp"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="showShow" destination="IzN-qs-USD" id="Rmb-AM-tOR"/>
+                                            <outlet property="showLabel" destination="Y4q-IX-cbb" id="vJ9-J4-ehu"/>
+                                            <segue destination="OyW-4b-xBd" kind="show" identifier="ShowDetailSegue" id="zIR-Db-cgy"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="er1-6U-8eE" id="qJ2-sB-jwo"/>
+                                </connections>
                             </tableView>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vWV-bB-477">
+                            <tabBar alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vWV-bB-477">
                                 <rect key="frame" x="0.0" y="779" width="414" height="83"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 <items>
-                                    <tabBarItem systemItem="favorites" id="S7K-5P-2wV"/>
+                                    <tabBarItem title="Favorites" image="star.fill" catalog="system" selectedImage="square.and.arrow.up.on.square" id="S7K-5P-2wV">
+                                        <color key="badgeColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tabBarItem>
                                     <tabBarItem title="Binged" image="checkmark.seal.fill" catalog="system" id="cmi-lU-uNR"/>
                                     <tabBarItem title="To Watch" image="xmark.seal" catalog="system" id="hjL-q5-YV0"/>
                                 </items>
@@ -147,6 +188,9 @@
                         <viewLayoutGuide key="safeArea" id="XBL-Ia-jQd"/>
                     </view>
                     <navigationItem key="navigationItem" title="Binge List" id="hxo-m3-Ucy"/>
+                    <connections>
+                        <outlet property="tableView" destination="C5O-Fw-03F" id="a3a-bh-prJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hxK-xd-H9S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -172,7 +216,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="IMG_0829" width="1200" height="630"/>
         <image name="checkmark.seal.fill" catalog="system" width="64" height="60"/>
+        <image name="square.and.arrow.up.on.square" catalog="system" width="58" height="64"/>
+        <image name="star.fill" catalog="system" width="64" height="58"/>
         <image name="xmark.seal" catalog="system" width="64" height="60"/>
     </resources>
 </document>
