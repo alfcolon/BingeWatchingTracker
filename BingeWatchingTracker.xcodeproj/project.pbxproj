@@ -7,12 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		387BC0BA23AD84C6000A1B9A /* BingleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387BC0B923AD84C6000A1B9A /* BingleListTableViewController.swift */; };
-		387BC0BC23AD8578000A1B9A /* BingeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387BC0BB23AD8578000A1B9A /* BingeController.swift */; };
-		387BC0BF23AD85D2000A1B9A /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387BC0BE23AD85D2000A1B9A /* Show.swift */; };
-		387BC0C123AD8618000A1B9A /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387BC0C023AD8618000A1B9A /* Episode.swift */; };
-		387BC0C323AD8665000A1B9A /* BingeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387BC0C223AD8665000A1B9A /* BingeTableViewCell.swift */; };
-		387BC0C523AD86A6000A1B9A /* BingeTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387BC0C423AD86A6000A1B9A /* BingeTableViewCellDelegate.swift */; };
 		389350AA23A9636800AC6BA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389350A923A9636800AC6BA9 /* AppDelegate.swift */; };
 		389350AC23A9636800AC6BA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389350AB23A9636800AC6BA9 /* SceneDelegate.swift */; };
 		389350B123A9636800AC6BA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 389350AF23A9636800AC6BA9 /* Main.storyboard */; };
@@ -30,10 +24,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		387BC0B923AD84C6000A1B9A /* BingleListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingleListTableViewController.swift; sourceTree = "<group>"; };
-		387BC0BB23AD8578000A1B9A /* BingeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingeController.swift; sourceTree = "<group>"; };
-		387BC0BE23AD85D2000A1B9A /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Show.swift; path = BingeWatchingTracker/Show.swift; sourceTree = SOURCE_ROOT; };
-		387BC0C023AD8618000A1B9A /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Episode.swift; path = BingeWatchingTracker/Episode.swift; sourceTree = SOURCE_ROOT; };
 		387BC0C223AD8665000A1B9A /* BingeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingeTableViewCell.swift; sourceTree = "<group>"; };
 		387BC0C423AD86A6000A1B9A /* BingeTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingeTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		389350A623A9636800AC6BA9 /* BingeWatchingTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BingeWatchingTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,22 +55,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		387BC0B823AD8447000A1B9A /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				387BC0B923AD84C6000A1B9A /* BingleListTableViewController.swift */,
-			);
-			path = "View Controllers";
-			sourceTree = "<group>";
-		};
-		387BC0BD23AD8584000A1B9A /* Model Controller */ = {
-			isa = PBXGroup;
-			children = (
-				387BC0BB23AD8578000A1B9A /* BingeController.swift */,
-			);
-			path = "Model Controller";
-			sourceTree = "<group>";
-		};
 		3893509D23A9636800AC6BA9 = {
 			isa = PBXGroup;
 			children = (
@@ -103,7 +77,7 @@
 				38FF7C3523B40C1B0080D264 /* Protocols */,
 				389350BE23A9793F00AC6BA9 /* Models */,
 				38FF7C2E23B2DFBC0080D264 /* Views */,
-				389350BD23A9792B00AC6BA9 /* Controllers */,
+				389350BD23A9792B00AC6BA9 /* ViewControllers */,
 				389350C023A9797C00AC6BA9 /* Storyboards */,
 				389350C123A979A200AC6BA9 /* Resources */,
 				389350B723A9636C00AC6BA9 /* Info.plist */,
@@ -113,13 +87,13 @@
 			path = BingeWatchingTracker;
 			sourceTree = "<group>";
 		};
-		389350BD23A9792B00AC6BA9 /* Controllers */ = {
+		389350BD23A9792B00AC6BA9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				38FF7C2323B2D3520080D264 /* BingeListViewController.swift */,
 				38FF7C2F23B400E70080D264 /* ShowDetailViewController.swift */,
 			);
-			path = Controllers;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		389350BE23A9793F00AC6BA9 /* Models */ = {
@@ -395,6 +369,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 88FS6F8B93;
 				INFOPLIST_FILE = BingeWatchingTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -412,6 +387,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 88FS6F8B93;
 				INFOPLIST_FILE = BingeWatchingTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

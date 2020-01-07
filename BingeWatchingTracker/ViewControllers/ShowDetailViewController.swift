@@ -15,6 +15,7 @@ class ShowDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateView()
+        tableView.backgroundColor = .lightGray
     }
     
     // MARK: - IBOutlets
@@ -36,11 +37,13 @@ class ShowDetailViewController: UIViewController {
         guard let _ = show else { return }
         titleLabel.text = show!.name
         imageView.image = UIImage(named: show!.name)
-        if show!.favorite == true{
-            favoriteButton.setImage(UIImage(named: "F2"), for: .normal)
+        if show!.favorite == true {
+          //  favoriteButton.setImage(UIImage(named: "F2"), for: .normal)
+            favoriteButton.setImage(UIImage(named: "F1"), for: .normal)
         }
-        else{
-            favoriteButton.setImage(UIImage(named: "NF2"), for: .normal)
+        else {
+           // favoriteButton.setImage(UIImage(named: "NF2"), for: .normal)
+            favoriteButton.setImage(UIImage(named: "NF1"), for: .normal)
         }
     }
     
@@ -49,10 +52,12 @@ class ShowDetailViewController: UIViewController {
     @IBAction func favoriteTapped(_ sender: UIButton) {
         guard let _ = row else { return }
         if show!.favorite == true{
-                      favoriteButton.setImage(UIImage(named: "NF2"), for: .normal)
+                    //  favoriteButton.setImage(UIImage(named: "NF2"), for: .normal)
+                      favoriteButton.setImage(UIImage(named: "NF1"), for: .normal)
                   }
                   else{
-                      favoriteButton.setImage(UIImage(named: "F2"), for: .normal)
+                     // favoriteButton.setImage(UIImage(named: "F2"), for: .normal)
+                      favoriteButton.setImage(UIImage(named: "F1"), for: .normal)
                   }
         delegate?.informationToUpdate(showIndex: row!, episodeIndex: nil, favorited: !show!.favorite)
        
@@ -75,6 +80,7 @@ extension ShowDetailViewController: UITableViewDataSource{
             cell.episodeInformation = episode
             cell.delegate = self
             cell.row = indexPath.row
+            cell.backgroundColor = .lightGray
             return cell
         }
         return UITableViewCell()

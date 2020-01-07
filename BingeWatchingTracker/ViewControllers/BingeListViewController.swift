@@ -15,7 +15,7 @@ class BingeListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.backgroundColor = .darkGray
     }
 
     // MARK: - IBOutlets
@@ -56,6 +56,7 @@ extension BingeListViewController: UITableViewDataSource{
         cell.show = show
         cell.row = indexPath.row
         cell.delegate = self
+        cell.backgroundColor = .darkGray
         return cell
     }
 }

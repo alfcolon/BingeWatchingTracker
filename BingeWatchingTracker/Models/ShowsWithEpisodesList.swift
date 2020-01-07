@@ -27,7 +27,7 @@ class BingeController {
                      episodes: [
                     Episode(name: "Pilot", binged: false),
                     Episode(name: "Fastest Man Alive", binged: false),
-                    Episode(name: "Things You Cannout Outrun", binged: false),
+                    Episode(name: "Things You Cannot Outrun", binged: false),
                     Episode(name: "Going Rogue", binged: false),
                     Episode(name: "Plastique", binged: false),
                     Episode(name: "The Flash Is Born", binged: false),
