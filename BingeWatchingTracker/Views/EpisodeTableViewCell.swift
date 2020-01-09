@@ -29,6 +29,7 @@ class EpisodeTableViewCell: UITableViewCell {
     
     func updateView(){
         guard let episode = episodeInformation else { return }
+        
         episodeLabel.text = episode.name
         bingedToggle.isOn = episode.binged
     }
@@ -36,8 +37,15 @@ class EpisodeTableViewCell: UITableViewCell {
     // MARK: - IBActions
     
     @IBAction func bingedToggleButtonPressed(_ sender: UISwitch!) {
+        #warning("attempting userDefaults setting")
+        let userDefaults =  UserDefaults.standard
+        userDefaults.set(sender.isOn, forKey: .hasBeenBingedKey)
+   
         guard let i: Int = row else { return }
         delegate?.toggleEpisodeWatched(i: i)
     }
-    
+}
+
+extension String {
+    static var hasBeenBingedKey = "HasBeenBinged"
 }

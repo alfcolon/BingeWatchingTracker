@@ -11,11 +11,10 @@ import UIKit
 class ShowDetailViewController: UIViewController {
     
     // MARK: - View
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateView()
-        tableView.backgroundColor = .lightGray
+        tableView.backgroundColor = .darkGray
     }
     
     // MARK: - IBOutlets
@@ -29,47 +28,47 @@ class ShowDetailViewController: UIViewController {
     
     var show: Show?
     var delegate: UpdateShowInformation?
-    var row: Int?
+    var persistentBingeController: PersistentBingeController?
+    //var row: Int?
     
     // MARK: - Methods
     
     func updateView(){
-        guard let _ = show else { return }
-        titleLabel.text = show!.name
-        imageView.image = UIImage(named: show!.name)
-        if show!.favorite == true {
-          //  favoriteButton.setImage(UIImage(named: "F2"), for: .normal)
+        guard let show = show else { return }
+        titleLabel.text = show.name
+        imageView.image = UIImage(named: show.name)
+        if show.favorite == true {
             favoriteButton.setImage(UIImage(named: "F1"), for: .normal)
         }
         else {
-           // favoriteButton.setImage(UIImage(named: "NF2"), for: .normal)
             favoriteButton.setImage(UIImage(named: "NF1"), for: .normal)
         }
     }
     
     // MARK: - IBActions
-      
+    
     @IBAction func favoriteTapped(_ sender: UIButton) {
-        guard let _ = row else { return }
-        if show!.favorite == true{
-                    //  favoriteButton.setImage(UIImage(named: "NF2"), for: .normal)
-                      favoriteButton.setImage(UIImage(named: "NF1"), for: .normal)
-                  }
-                  else{
-                     // favoriteButton.setImage(UIImage(named: "F2"), for: .normal)
-                      favoriteButton.setImage(UIImage(named: "F1"), for: .normal)
-                  }
-        delegate?.informationToUpdate(showIndex: row!, episodeIndex: nil, favorited: !show!.favorite)
-       
+     //   guard let _ = row else { return }
+     guard var show = show else { return }
+        show.favorite.toggle()
+        persistentBingeController?.toggleFavorite(for: show)
+        if show.favorite == true {
+            favoriteButton.setImage(UIImage(named: "F1"), for: .normal)
+        }
+        else {
+            favoriteButton.setImage(UIImage(named: "NF1"), for: .normal)
+        }
         self.reloadInputViews()
     }
 }
+
 extension ShowDetailViewController: UITableViewDataSource{
     
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let show = show else { return 1 }
+        #warning("delegate to persistence")
         return show.episodes.count
     }
     
@@ -80,7 +79,7 @@ extension ShowDetailViewController: UITableViewDataSource{
             cell.episodeInformation = episode
             cell.delegate = self
             cell.row = indexPath.row
-            cell.backgroundColor = .lightGray
+            cell.backgroundColor = .darkGray
             return cell
         }
         return UITableViewCell()
@@ -95,8 +94,6 @@ extension ShowDetailViewController: EpisodeHasBeenBinged{
         guard let _ = show else { return }
         show!.episodes[i].binged = !show!.episodes[i].binged
         self.tableView.reloadData()
-        delegate?.informationToUpdate(showIndex: row!, episodeIndex: i, favorited: nil)
+       // delegate?.informationToUpdate(showIndex: row!, episodeIndex: i, favorited: nil)
     }
 }
-
-

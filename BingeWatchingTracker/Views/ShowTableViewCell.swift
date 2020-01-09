@@ -16,7 +16,7 @@ class ShowTableViewCell: UITableViewCell{
     
     //MARK: -Properties
     
-    var show: Show?{
+    var show: Show? {
         didSet{
             updateViews()
         }
@@ -26,10 +26,11 @@ class ShowTableViewCell: UITableViewCell{
     
     //MARK: -Methods
     
-    private func updateViews(){
+    private func updateViews() {
         guard let show = show else { return }
         showLabel.text = show.name
     }
+    #warning("what is setting the value of 'row'?")
     @IBAction func favoriteTapped(_ sender: UIButton) {
         guard let _ = row else { return }
         delegate?.informationToUpdate(showIndex: row!, episodeIndex: nil, favorited: !show!.favorite)

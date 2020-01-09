@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		381A73D723C5CB9D00B9DEB6 /* PersistentBingeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381A73D623C5CB9D00B9DEB6 /* PersistentBingeController.swift */; };
 		389350AA23A9636800AC6BA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389350A923A9636800AC6BA9 /* AppDelegate.swift */; };
 		389350AC23A9636800AC6BA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389350AB23A9636800AC6BA9 /* SceneDelegate.swift */; };
 		389350B123A9636800AC6BA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 389350AF23A9636800AC6BA9 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		381A73D623C5CB9D00B9DEB6 /* PersistentBingeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentBingeController.swift; sourceTree = "<group>"; };
 		387BC0C223AD8665000A1B9A /* BingeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingeTableViewCell.swift; sourceTree = "<group>"; };
 		387BC0C423AD86A6000A1B9A /* BingeTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingeTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		389350A623A9636800AC6BA9 /* BingeWatchingTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BingeWatchingTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +57,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		381A73D323C5C93F00B9DEB6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				381A73D623C5CB9D00B9DEB6 /* PersistentBingeController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		3893509D23A9636800AC6BA9 = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +90,7 @@
 				389350BD23A9792B00AC6BA9 /* ViewControllers */,
 				389350C023A9797C00AC6BA9 /* Storyboards */,
 				389350C123A979A200AC6BA9 /* Resources */,
+				381A73D323C5C93F00B9DEB6 /* Controllers */,
 				389350B723A9636C00AC6BA9 /* Info.plist */,
 				387BC0C223AD8665000A1B9A /* BingeTableViewCell.swift */,
 				387BC0C423AD86A6000A1B9A /* BingeTableViewCellDelegate.swift */,
@@ -218,6 +229,7 @@
 				38FF7C2823B2D9580080D264 /* episode.swift in Sources */,
 				389350AA23A9636800AC6BA9 /* AppDelegate.swift in Sources */,
 				38FF7C2D23B2DFB50080D264 /* ShowTableViewCell.swift in Sources */,
+				381A73D723C5CB9D00B9DEB6 /* PersistentBingeController.swift in Sources */,
 				38FF7C2A23B2DA5C0080D264 /* ShowsWithEpisodesList.swift in Sources */,
 				38FF7C3023B400E70080D264 /* ShowDetailViewController.swift in Sources */,
 				389350AC23A9636800AC6BA9 /* SceneDelegate.swift in Sources */,

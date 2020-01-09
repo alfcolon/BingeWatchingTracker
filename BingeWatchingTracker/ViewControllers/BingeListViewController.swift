@@ -18,14 +18,18 @@ class BingeListViewController: UIViewController {
         tableView.backgroundColor = .darkGray
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     // MARK: - IBOutlets
 
     @IBOutlet weak var tableView: UITableView!
-    
+   // var delegate: manageShowDelegate?
     // MARK: - Properties
 
-    var shows: BingeController = BingeController() //load data
-    
+   // var shows: BingeController = BingeController() //load data
+    var persistentBingeController = PersistentBingeController()
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -33,11 +37,12 @@ class BingeListViewController: UIViewController {
         guard let showDetailVC = segue.destination as? ShowDetailViewController else { return }
         // Pass the selected object to the new view controller.
         let indexPathForSelectedRow = tableView.indexPathForSelectedRow!.row
-        let show = shows.allShows[indexPathForSelectedRow]
+        let show = persistentBingeController.shows[indexPathForSelectedRow]
         //delegate
-        showDetailVC.delegate = self
-        showDetailVC.row = indexPathForSelectedRow
+       // showDetailVC.delegate = self
+     //   showDetailVC.row = indexPathForSelectedRow
         showDetailVC.show = show
+        showDetailVC.persistentBingeController = self.persistentBingeController
     }
 }
 
@@ -47,30 +52,31 @@ extension BingeListViewController: UITableViewDataSource{
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return shows.allShows.count
+        return persistentBingeController.shows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ShowCell", for: indexPath) as? ShowTableViewCell else { return UITableViewCell() }
-        let show = shows.allShows[indexPath.row]
+        let show = persistentBingeController.shows[indexPath.row]
         cell.show = show
         cell.row = indexPath.row
-        cell.delegate = self
+       // cell.delegate = self
         cell.backgroundColor = .darkGray
         return cell
     }
 }
-extension BingeListViewController: UpdateShowInformation{
+//extension BingeListViewController: UpdateShowInformation{
     
     // MARK: - DelegateMethod
     
-    func informationToUpdate(showIndex: Int, episodeIndex: Int?, favorited: Bool?){
-        if let _ = favorited{
-            shows.allShows[showIndex].favorite.toggle()
-        }
-        if let _  = episodeIndex{
-            shows.allShows[showIndex].episodes[episodeIndex!].binged.toggle()
-        }
-        self.tableView.reloadData()
-    }
-}
+//    func informationToUpdate(showIndex: Int, episodeIndex: Int?, favorited: Bool?){
+//        if let _ = favorited {
+//            persistentBingeController.shows[showIndex].favorite.toggle()
+//
+//        }
+//        if let _  = episodeIndex {
+//            persistentBingeController.shows[showIndex].episodes[episodeIndex!].binged.toggle()
+//        }
+//        self.tableView.reloadData()
+//    }
+//}

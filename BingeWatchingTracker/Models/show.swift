@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Show {
+struct Show: Codable, Equatable {
     
     var name: String
     var imageName: String
@@ -21,4 +21,9 @@ struct Show {
         self.episodes = episodes
         self.favorite = false
     }
+    
+    static func == (lhs: Show, rhs: Show) -> Bool {
+        return lhs.name == rhs.name
+    }
+    
 }
