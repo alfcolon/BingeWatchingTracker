@@ -21,17 +21,12 @@ class ShowTableViewCell: UITableViewCell{
             updateViews()
         }
     }
-    var row: Int?
-    var delegate: UpdateShowInformation?
-    
+    var showIndex: Int?
+    var delegate: EpisodeHasBeenBinged?
     //MARK: -Methods
     
     private func updateViews(){
         guard let show = show else { return }
         showLabel.text = show.name
-    }
-    @IBAction func favoriteTapped(_ sender: UIButton) {
-        guard let _ = row else { return }
-        delegate?.informationToUpdate(showIndex: row!, episodeIndex: nil, favorited: !show!.favorite)
     }
 }

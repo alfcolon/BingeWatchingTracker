@@ -1,16 +1,22 @@
 //
-//  ShowsWithEpisodesList.swift
+//  TVShowCatalogController.swift
 //  BingeWatchingTracker
 //
-//  Created by alfredo on 12/24/19.
-//  Copyright © 2019 TeamFlash. All rights reserved.
+//  Created by alfredo on 1/9/20.
+//  Copyright © 2020 TeamFlash. All rights reserved.
 //
 
 import Foundation
 
-class BingeController {
+//MARK: -GlobalVariables
+
+var tvShows = TVShows()
+
+class TVShows{
     
-    var allShows: [Show] =
+    //MARK: -Properties
+    
+    var catalog: [Show] =
             [
                 Show(name: "Arrow", imageName: "",
                      episodes: [
@@ -23,7 +29,7 @@ class BingeController {
                         Episode(name: "Muse Of Fire", binged: false)
                     ],
                     favorite: false),
-                Show(name: "The Flash", imageName: "",
+                Show(name: "TheFlash", imageName: "",
                      episodes: [
                     Episode(name: "Pilot", binged: false),
                     Episode(name: "Fastest Man Alive", binged: false),
@@ -46,4 +52,26 @@ class BingeController {
             ],
             favorite: false)
         ]
+    
+    //MARK: -Methods
+    func getFavoriteShows()->[Show]{
+        let favoriteShows = catalog.filter { (show: Show) -> Bool in
+            return show.favorite == true
+        }
+        return favoriteShows
+    }
+    func favoriteShow(showIndex: Int?){
+        guard let index = showIndex else { return }
+        tvShows.catalog[index].favorite.toggle()
+    }
+    func filterShows(textToMatch: String)->[Show]{
+        guard textToMatch != "" else { return [] }
+        let filteredShows = catalog.filter { (show: Show) -> Bool in
+            return show.name.range(of: textToMatch, options: .caseInsensitive, range: nil, locale: nil) != nil
+        }
+        return filteredShows
+    }
+    func episodeWatched(showIndex: Int, episodeIndex: Int){
+        tvShows.catalog[showIndex].episodes[episodeIndex].binged.toggle()
+    }
 }

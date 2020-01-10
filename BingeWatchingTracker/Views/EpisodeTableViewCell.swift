@@ -23,7 +23,8 @@ class EpisodeTableViewCell: UITableViewCell {
         }
     }
     var delegate: EpisodeHasBeenBinged?
-    var row: Int?
+    var episodeIndex: Int!
+    var showIndex: Int!
       
     // MARK: - Methods
     
@@ -36,8 +37,8 @@ class EpisodeTableViewCell: UITableViewCell {
     // MARK: - IBActions
     
     @IBAction func bingedToggleButtonPressed(_ sender: UISwitch!) {
-        guard let i: Int = row else { return }
-        delegate?.toggleEpisodeWatched(i: i)
+        tvShows.episodeWatched(showIndex: showIndex, episodeIndex: episodeIndex)
+        delegate?.toggleEpisodeWatched(index: episodeIndex)
     }
     
 }
