@@ -18,7 +18,7 @@ class TVShowViewController: UIViewController, UICollectionViewDataSource{
     //MARK: -IBOutlets
     
     @IBOutlet weak var collectionView: UICollectionView!
-
+    let tvShowController = TVShows.shared
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -26,7 +26,7 @@ class TVShowViewController: UIViewController, UICollectionViewDataSource{
         guard let showDetailVC = segue.destination as? TVShowDetailViewController else { return }
         
         let row = self.collectionView!.indexPathsForSelectedItems![0][1]
-        let show = tvShows.catalog[row]
+        let show = tvShowController.catalog[row]
         
         showDetailVC.showIndex = row
         showDetailVC.show = show
@@ -41,14 +41,14 @@ class TVShowViewController: UIViewController, UICollectionViewDataSource{
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return tvShows.catalog.count
+        return tvShowController.catalog.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TVShowCell", for: indexPath) as? TVShowCollectionViewCell else { return UICollectionViewCell() }
     
         // Configure the cell
-        let tvShowName = tvShows.catalog[indexPath.row].name
+        let tvShowName = tvShowController.catalog[indexPath.row].name
         let posterName = tvShowName + "Poster"
         cell.poster = UIImage(named: posterName)
         return cell

@@ -14,10 +14,15 @@ class FavoritesCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         collectionView.collectionViewLayout = CustomImageLayout()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.favoriteShows = TVShows.shared.getFavoriteShows()
+        self.collectionView.reloadData()
+    }
 
     //MARK: -Properties
 
-    var favoriteShows: [Show] = tvShows.getFavoriteShows()
+    var favoriteShows: [Show] = TVShows.shared.getFavoriteShows()
 
     //MARK: -IBOutlets
 
@@ -30,7 +35,7 @@ class FavoritesCollectionViewController: UICollectionViewController {
         guard let showDetailVC = segue.destination as? TVShowDetailViewController else { return }
         let row = self.collectionView!.indexPathsForSelectedItems![0][1]
         let show = favoriteShows[row]
-        let showIndex = tvShows.catalog.firstIndex(where: { $0.name == show.name })
+        let showIndex = TVShows.shared.catalog.firstIndex(where: { $0.name == show.name })
         
         showDetailVC.showIndex = showIndex
         showDetailVC.show = show
@@ -49,12 +54,13 @@ class FavoritesCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TVShowCell", for: indexPath) as? TVShowCollectionViewCell  else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoritesCell", for: indexPath) as? TVShowCollectionViewCell  else { return UICollectionViewCell() }
     
         // Configure the cell
         let tvShowName = favoriteShows[indexPath.row].name
         let posterName = tvShowName + "Poster"
-        cell.TVShowPoster.image = UIImage(named: posterName)
+        
+        cell.TVShowPoster?.image = UIImage(named: posterName)
         return cell
     }
 }

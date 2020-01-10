@@ -37,8 +37,8 @@ class EpisodeTableViewCell: UITableViewCell {
     // MARK: - IBActions
     
     @IBAction func bingedToggleButtonPressed(_ sender: UISwitch!) {
-        tvShows.episodeWatched(showIndex: showIndex, episodeIndex: episodeIndex)
-        delegate?.toggleEpisodeWatched(index: episodeIndex)
+        TVShows.shared.episodeWatched(showIndex: showIndex, episodeIndex: episodeIndex)
+        delegate?.toggleEpisodeWatched(index: showIndex)
     }
     
 }

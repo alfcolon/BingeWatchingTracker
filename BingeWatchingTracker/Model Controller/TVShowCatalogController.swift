@@ -10,12 +10,11 @@ import Foundation
 
 //MARK: -GlobalVariables
 
-var tvShows = TVShows()
 
 class TVShows{
     
     //MARK: -Properties
-    
+    static let shared = TVShows()
     var catalog: [Show] =
             [
                 Show(name: "Arrow", imageName: "",
@@ -62,7 +61,8 @@ class TVShows{
     }
     func favoriteShow(showIndex: Int?){
         guard let index = showIndex else { return }
-        tvShows.catalog[index].favorite.toggle()
+        self.catalog[index].favorite.toggle()
+        print("stop here")
     }
     func filterShows(textToMatch: String)->[Show]{
         guard textToMatch != "" else { return [] }
@@ -72,6 +72,6 @@ class TVShows{
         return filteredShows
     }
     func episodeWatched(showIndex: Int, episodeIndex: Int){
-        tvShows.catalog[showIndex].episodes[episodeIndex].binged.toggle()
+        self.catalog[showIndex].episodes[episodeIndex].binged.toggle()
     }
 }

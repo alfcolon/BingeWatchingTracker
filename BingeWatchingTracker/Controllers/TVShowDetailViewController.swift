@@ -18,11 +18,10 @@ class TVShowDetailViewController: UIViewController {
     }
     
     // MARK: - IBOutlets
-    
-    @IBOutlet weak var myShowLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
+
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var navigationBar: UINavigationItem!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var myShowLabel: UILabel!
     
     // MARK: - Properties
     
@@ -40,13 +39,13 @@ class TVShowDetailViewController: UIViewController {
         default:
             myShowLabel.text = "Add To Favorites"
         }
-        navigationBar.title = tvShow.name
+        navigationController?.navigationItem.title = show?.name
     }
     
     // MARK: - IBActions
       
     @IBAction func addToMyListTapped(_ sender: UIButton) {
-        tvShows.favoriteShow(showIndex: showIndex)
+        TVShows.shared.favoriteShow(showIndex: showIndex)
         switch true{
         case myShowLabel.text == "Add To Favorites":
             myShowLabel.text = "Remove From Favorites"

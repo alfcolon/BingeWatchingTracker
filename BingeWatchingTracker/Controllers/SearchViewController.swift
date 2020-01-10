@@ -31,7 +31,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UISear
             guard let showDetailVC = segue.destination as? TVShowDetailViewController else { return }
             let row = self.collectionView!.indexPathsForSelectedItems![0][1]
             let show = filteredShows[row]
-            let showIndex = tvShows.catalog.firstIndex(where: { $0.name == show.name })
+            let showIndex = TVShows.shared.catalog.firstIndex(where: { $0.name == show.name })
             
             showDetailVC.showIndex = showIndex
             showDetailVC.show = show
@@ -62,7 +62,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UISear
         //MARK: UISeachControllerDelegate
 
         func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            filteredShows = searchText.isEmpty ? [] : tvShows.filterShows(textToMatch: searchText)
+            filteredShows = searchText.isEmpty ? [] : TVShows.shared.filterShows(textToMatch: searchText)
             collectionView.reloadData()
             print(searchText)
         }
