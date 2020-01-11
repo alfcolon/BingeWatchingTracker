@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Show{
+struct Show: Codable{
     
     var name: String
     var imageName: String

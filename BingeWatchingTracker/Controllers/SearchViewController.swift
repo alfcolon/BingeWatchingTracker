@@ -64,6 +64,5 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UISear
         func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
             filteredShows = searchText.isEmpty ? [] : TVShows.shared.filterShows(textToMatch: searchText)
             collectionView.reloadData()
-            print(searchText)
         }
 }

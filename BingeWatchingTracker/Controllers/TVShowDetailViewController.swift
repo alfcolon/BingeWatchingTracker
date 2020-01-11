@@ -46,6 +46,7 @@ class TVShowDetailViewController: UIViewController {
       
     @IBAction func addToMyListTapped(_ sender: UIButton) {
         TVShows.shared.favoriteShow(showIndex: showIndex)
+        TVShows.shared.saveToPersistentStore()
         switch true{
         case myShowLabel.text == "Add To Favorites":
             myShowLabel.text = "Remove From Favorites"
@@ -84,7 +85,6 @@ extension TVShowDetailViewController: EpisodeHasBeenBinged{
     // MARK: - DelegateMethod
     
     func toggleEpisodeWatched(index: Int){
-        print(index)
         show?.episodes[index].binged.toggle()
         self.tableView.reloadData()
     }

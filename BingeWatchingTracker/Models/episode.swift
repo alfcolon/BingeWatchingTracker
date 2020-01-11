@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Episode{
+struct Episode: Codable{
     
     var name: String
     var binged: Bool
