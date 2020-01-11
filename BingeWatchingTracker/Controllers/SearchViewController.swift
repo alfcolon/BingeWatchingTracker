@@ -12,7 +12,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UISear
 
         override func viewDidLoad() {
             super.viewDidLoad()
-            collectionView.collectionViewLayout = CustomImageLayout()
+            collectionView.collectionViewLayout = CustomCollectionViewImageLayout()
         }
 
         //MARK: -Properties

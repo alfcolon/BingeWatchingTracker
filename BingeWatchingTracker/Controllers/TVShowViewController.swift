@@ -12,13 +12,17 @@ class TVShowViewController: UIViewController, UICollectionViewDataSource{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.collectionViewLayout = CustomImageLayout()
+        collectionView.collectionViewLayout = CustomCollectionViewImageLayout()
     }
     
     //MARK: -IBOutlets
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    //MARK: -Properties
+    
     let tvShowController = TVShows.shared
+    
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -54,33 +58,4 @@ class TVShowViewController: UIViewController, UICollectionViewDataSource{
         return cell
     }
 
-}
-
-class CustomImageLayout: UICollectionViewFlowLayout {
-
-    var numberOfColumns: CGFloat = 3.0
-
-    override init() {
-        super.init()
-        setupLayout()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setupLayout()
-    }
-
-    override var itemSize: CGSize {
-        set { }
-        get {
-            let itemWidth = (self.collectionView!.frame.width - (self.numberOfColumns - 1)) / self.numberOfColumns
-            return CGSize(width: itemWidth, height: itemWidth * 1.5)
-        }
-    }
-
-    func setupLayout() {
-        minimumInteritemSpacing = 1 // Set to zero if you want
-        minimumLineSpacing = 1
-        scrollDirection = .vertical
-    }
 }

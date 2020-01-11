@@ -11,13 +11,12 @@ import Foundation
 struct Show: Codable{
     
     var name: String
-    var imageName: String
-    var episodes: [Episode]
     var favorite: Bool
+    var episodes: [Episode]
     
-    init(name: String, imageName: String, episodes: [Episode], favorite: Bool) {
+    
+    init(name: String, favorite: Bool, episodes: [Episode]) {
         self.name = name
-        self.imageName =  imageName
         self.episodes = episodes
         self.favorite = false
     }

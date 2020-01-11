@@ -27,7 +27,7 @@ class TVShows{
     //MARK: -Methods
     
     func create(){
-        let arrow = Show(name: "Arrow", imageName: "",
+        let arrow = Show(name: "Arrow", favorite: false,
          episodes: [
             Episode(name: "Pilot", binged: false),
             Episode(name: "Honor Thy Father", binged: false),
@@ -36,9 +36,8 @@ class TVShows{
             Episode(name: "Damaged", binged: false),
             Episode(name: "Legacies", binged: false),
             Episode(name: "Muse Of Fire", binged: false)
-        ],
-        favorite: false)
-        let theFlash = Show(name: "TheFlash", imageName: "",
+        ])
+        let theFlash = Show(name: "TheFlash", favorite: false,
              episodes: [
             Episode(name: "Pilot", binged: false),
             Episode(name: "Fastest Man Alive", binged: false),
@@ -47,9 +46,8 @@ class TVShows{
             Episode(name: "Plastique", binged: false),
             Episode(name: "The Flash Is Born", binged: false),
             Episode(name: "Power Outage", binged: false)
-        ],
-        favorite: false)
-        let dareDevil = Show(name: "DareDevil", imageName: "",
+        ])
+        let dareDevil = Show(name: "DareDevil", favorite: false,
                      episodes: [
                     Episode(name: "Into The Ring", binged: false),
                     Episode(name: "Cut Man", binged: false),
@@ -58,8 +56,7 @@ class TVShows{
                     Episode(name: "World On Fire", binged: false),
                     Episode(name: "Condemned", binged: false),
                     Episode(name: "Stick", binged: false)
-            ],
-            favorite: false)
+        ])
         catalog.append(arrow)
         catalog.append(theFlash)
         catalog.append(dareDevil)

@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		3828133E23C6AF180064C288 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3828133D23C6AF180064C288 /* SearchViewController.swift */; };
 		3828134023C6C44B0064C288 /* TVShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3828133F23C6C44B0064C288 /* TVShowViewController.swift */; };
+		382B448323C9A221009A449D /* catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382B448223C9A221009A449D /* catalog.swift */; };
 		383C52D223C7FAAE00999CDF /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C52D123C7FAAE00999CDF /* FavoritesViewController.swift */; };
 		383C52D523C8000500999CDF /* TVShowCatalogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C52D423C8000500999CDF /* TVShowCatalogController.swift */; };
+		384C6D5C23C976F500A319A2 /* CustomCollectionViewImageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384C6D5B23C976F500A319A2 /* CustomCollectionViewImageLayout.swift */; };
 		389350AA23A9636800AC6BA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389350A923A9636800AC6BA9 /* AppDelegate.swift */; };
 		389350AC23A9636800AC6BA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389350AB23A9636800AC6BA9 /* SceneDelegate.swift */; };
 		389350B123A9636800AC6BA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 389350AF23A9636800AC6BA9 /* Main.storyboard */; };
@@ -29,8 +31,10 @@
 /* Begin PBXFileReference section */
 		3828133D23C6AF180064C288 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		3828133F23C6C44B0064C288 /* TVShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowViewController.swift; sourceTree = "<group>"; };
+		382B448223C9A221009A449D /* catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = catalog.swift; sourceTree = "<group>"; };
 		383C52D123C7FAAE00999CDF /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		383C52D423C8000500999CDF /* TVShowCatalogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowCatalogController.swift; sourceTree = "<group>"; };
+		384C6D5B23C976F500A319A2 /* CustomCollectionViewImageLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewImageLayout.swift; sourceTree = "<group>"; };
 		389350A623A9636800AC6BA9 /* BingeWatchingTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BingeWatchingTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		389350A923A9636800AC6BA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		389350AB23A9636800AC6BA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 			children = (
 				38FF7C2723B2D9580080D264 /* episode.swift */,
 				38FF7C2523B2D9390080D264 /* show.swift */,
+				382B448223C9A221009A449D /* catalog.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -149,8 +154,9 @@
 		38FF7C2E23B2DFBC0080D264 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				38B42CC423C57BFF00584AA9 /* TVShowCollectionViewCell.swift */,
 				38FF7C3323B403430080D264 /* EpisodeTableViewCell.swift */,
+				38B42CC423C57BFF00584AA9 /* TVShowCollectionViewCell.swift */,
+				384C6D5B23C976F500A319A2 /* CustomCollectionViewImageLayout.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -238,6 +244,7 @@
 				38FF7C3423B403430080D264 /* EpisodeTableViewCell.swift in Sources */,
 				38FF7C2823B2D9580080D264 /* episode.swift in Sources */,
 				3828134023C6C44B0064C288 /* TVShowViewController.swift in Sources */,
+				382B448323C9A221009A449D /* catalog.swift in Sources */,
 				389350AA23A9636800AC6BA9 /* AppDelegate.swift in Sources */,
 				38B42CC523C57BFF00584AA9 /* TVShowCollectionViewCell.swift in Sources */,
 				38FF7C2D23B2DFB50080D264 /* ShowTableViewCell.swift in Sources */,
@@ -248,6 +255,7 @@
 				38FF7C2623B2D9390080D264 /* show.swift in Sources */,
 				383C52D223C7FAAE00999CDF /* FavoritesViewController.swift in Sources */,
 				383C52D523C8000500999CDF /* TVShowCatalogController.swift in Sources */,
+				384C6D5C23C976F500A319A2 /* CustomCollectionViewImageLayout.swift in Sources */,
 				38E3177E23B84E8C00B3497E /* ShowHasBeenFavorited.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

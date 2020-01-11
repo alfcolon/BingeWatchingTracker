@@ -12,7 +12,7 @@ class FavoritesCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.collectionViewLayout = CustomImageLayout()
+        collectionView.collectionViewLayout = CustomCollectionViewImageLayout()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
