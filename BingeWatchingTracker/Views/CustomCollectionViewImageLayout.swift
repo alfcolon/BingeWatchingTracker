@@ -10,8 +10,6 @@ import UIKit
 
 class CustomCollectionViewImageLayout: UICollectionViewFlowLayout {
 
-    
-    
     override init() {
         super.init()
         setupLayout()
@@ -31,7 +29,7 @@ class CustomCollectionViewImageLayout: UICollectionViewFlowLayout {
         set { }
         get {
             let itemWidth = (self.collectionView!.frame.width - (self.numberOfColumns - 1)) / self.numberOfColumns
-            return CGSize(width: itemWidth, height: itemWidth * 1.5)
+            return CGSize(width: itemWidth, height: itemWidth * 1.6)
         }
     }
     

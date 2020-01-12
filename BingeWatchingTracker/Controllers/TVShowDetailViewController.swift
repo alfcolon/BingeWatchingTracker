@@ -19,19 +19,20 @@ class TVShowDetailViewController: UIViewController {
     
     // MARK: - IBOutlets
 
+    @IBOutlet weak var sceneTitle: UINavigationItem!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var myShowLabel: UILabel!
     
     // MARK: - Properties
     
-    var showIndex: Int?
-    var show: Show?
+    var catalogIndex: Int?
+    var tvShow: Show?
     
     // MARK: - Methods
     
     func updateView(){
-        guard let tvShow = show else { return }
+        guard let tvShow = tvShow else { return }
         imageView.image = UIImage(named: tvShow.name)
         switch true{
         case tvShow.favorite == true:
@@ -39,13 +40,13 @@ class TVShowDetailViewController: UIViewController {
         default:
             myShowLabel.text = "Add To Favorites"
         }
-        navigationController?.navigationItem.title = show?.name
+        sceneTitle.title = tvShow.name
     }
     
     // MARK: - IBActions
       
     @IBAction func addToMyListTapped(_ sender: UIButton) {
-        TVShows.shared.favoriteShow(showIndex: showIndex)
+        TVShows.shared.favoriteShow(catalogIndex)
         TVShows.shared.saveToPersistentStore()
         switch true{
         case myShowLabel.text == "Add To Favorites":
@@ -60,23 +61,31 @@ class TVShowDetailViewController: UIViewController {
 extension TVShowDetailViewController: UITableViewDataSource{
     
     // MARK: - UITableViewDataSource
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return (tvShow?.episodes.count)!
+     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let show = show else { return 1 }
-        return show.episodes.count
+        return (tvShow?.episodes[section].count)!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeCell", for: indexPath) as? EpisodeTableViewCell else { return UITableViewCell() }
+        let seasonIndex = indexPath.section
+        let episodeIndex = indexPath.row
+        let episodeInformation = tvShow?.episodes[seasonIndex][episodeIndex]
         
-        let episode = show?.episodes[indexPath.row]
-        
-        cell.episodeInformation = episode
-        cell.episodeIndex = indexPath.row
-        cell.showIndex = showIndex
+        cell.seasonIndex = seasonIndex
+        cell.episodeInformation = episodeInformation
+        cell.episodeIndex = episodeIndex
+        cell.catalogIndex = catalogIndex
         cell.delegate = self
         
         return cell
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Season \(section + 1)"
     }
 }
 
@@ -84,10 +93,8 @@ extension TVShowDetailViewController: EpisodeHasBeenBinged{
 
     // MARK: - DelegateMethod
     
-    func toggleEpisodeWatched(index: Int){
-        show?.episodes[index].binged.toggle()
+    func toggleEpisodeWatched(_ seasonIndex: Int, _ episodeIndex: Int){
+        tvShow?.episodes[seasonIndex][episodeIndex].binged.toggle()
         self.tableView.reloadData()
     }
 }
-
-

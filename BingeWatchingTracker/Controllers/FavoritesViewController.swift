@@ -12,7 +12,7 @@ class FavoritesCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.collectionViewLayout = CustomCollectionViewImageLayout()
+//        collectionView.collectionViewLayout = CustomCollectionViewImageLayout()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -34,11 +34,11 @@ class FavoritesCollectionViewController: UICollectionViewController {
         guard segue.identifier == "TVShowDetailSegue" else { return }
         guard let showDetailVC = segue.destination as? TVShowDetailViewController else { return }
         let row = self.collectionView!.indexPathsForSelectedItems![0][1]
-        let show = favoriteShows[row]
-        let showIndex = TVShows.shared.catalog.firstIndex(where: { $0.name == show.name })
+        let tvShow = favoriteShows[row]
+        let catalogIndex = TVShows.shared.getCatalogIndexOfTVShow(tvShow.name)
         
-        showDetailVC.showIndex = showIndex
-        showDetailVC.show = show
+        showDetailVC.catalogIndex = catalogIndex
+        showDetailVC.tvShow = tvShow
     }
     
     // MARK: UICollectionViewDataSource
@@ -58,7 +58,7 @@ class FavoritesCollectionViewController: UICollectionViewController {
     
         // Configure the cell
         let tvShowName = favoriteShows[indexPath.row].name
-        let posterName = tvShowName + "Poster"
+        let posterName = tvShowName + " Poster"
         
         cell.TVShowPoster?.image = UIImage(named: posterName)
         return cell

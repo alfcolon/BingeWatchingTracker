@@ -9,6 +9,6 @@
 import Foundation
 
 protocol EpisodeHasBeenBinged{
-    func toggleEpisodeWatched(index: Int)
+    func toggleEpisodeWatched(_ seasonIndex: Int, _ episodeIndex: Int)
 }
 

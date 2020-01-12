@@ -32,8 +32,8 @@ class TVShowViewController: UIViewController, UICollectionViewDataSource{
         let row = self.collectionView!.indexPathsForSelectedItems![0][1]
         let show = tvShowController.catalog[row]
         
-        showDetailVC.showIndex = row
-        showDetailVC.show = show
+        showDetailVC.catalogIndex = row
+        showDetailVC.tvShow = show
     }
     
     // MARK: UICollectionViewDataSource
@@ -53,9 +53,8 @@ class TVShowViewController: UIViewController, UICollectionViewDataSource{
     
         // Configure the cell
         let tvShowName = tvShowController.catalog[indexPath.row].name
-        let posterName = tvShowName + "Poster"
+        let posterName = tvShowName + " Poster"
         cell.poster = UIImage(named: posterName)
         return cell
     }
-
 }

@@ -16,6 +16,7 @@ class TVShows{
             create()
         }
     }
+    
     //MARK: -Simpleton
     
     static let shared = TVShows()
@@ -27,39 +28,7 @@ class TVShows{
     //MARK: -Methods
     
     func create(){
-        let arrow = Show(name: "Arrow", favorite: false,
-         episodes: [
-            Episode(name: "Pilot", binged: false),
-            Episode(name: "Honor Thy Father", binged: false),
-            Episode(name: "Lone Gunmen", binged: false),
-            Episode(name: "An Innocent Man", binged: false),
-            Episode(name: "Damaged", binged: false),
-            Episode(name: "Legacies", binged: false),
-            Episode(name: "Muse Of Fire", binged: false)
-        ])
-        let theFlash = Show(name: "TheFlash", favorite: false,
-             episodes: [
-            Episode(name: "Pilot", binged: false),
-            Episode(name: "Fastest Man Alive", binged: false),
-            Episode(name: "Things You Cannout Outrun", binged: false),
-            Episode(name: "Going Rogue", binged: false),
-            Episode(name: "Plastique", binged: false),
-            Episode(name: "The Flash Is Born", binged: false),
-            Episode(name: "Power Outage", binged: false)
-        ])
-        let dareDevil = Show(name: "DareDevil", favorite: false,
-                     episodes: [
-                    Episode(name: "Into The Ring", binged: false),
-                    Episode(name: "Cut Man", binged: false),
-                    Episode(name: "Rabbit In A Snowstorm", binged: false),
-                    Episode(name: "In The Blood", binged: false),
-                    Episode(name: "World On Fire", binged: false),
-                    Episode(name: "Condemned", binged: false),
-                    Episode(name: "Stick", binged: false)
-        ])
-        catalog.append(arrow)
-        catalog.append(theFlash)
-        catalog.append(dareDevil)
+        catalog = TVShowCatalog().tvShowCatalog
         saveToPersistentStore()
     }
     
@@ -103,14 +72,17 @@ class TVShows{
     
     //MARK: -Methods
     
+    func getCatalogIndexOfTVShow(_ tvShowName: String)->Int{
+        return catalog.firstIndex(where: { $0.name == tvShowName })!
+    }
     func getFavoriteShows()->[Show]{
         let favoriteShows = catalog.filter { (show: Show) -> Bool in
             return show.favorite == true
         }
         return favoriteShows
     }
-    func favoriteShow(showIndex: Int?){
-        guard let index = showIndex else { return }
+    func favoriteShow(_ catalogIndex: Int?){
+        guard let index = catalogIndex else { return }
         self.catalog[index].favorite.toggle()
         saveToPersistentStore()
     }
@@ -121,8 +93,9 @@ class TVShows{
         }
         return filteredShows
     }
-    func episodeWatched(showIndex: Int, episodeIndex: Int){
-        self.catalog[showIndex].episodes[episodeIndex].binged.toggle()
+    func episodeWatched(_ catalogIndex: Int, _ seasonIndex: Int, _ episodeIndex: Int){
+        self.catalog[catalogIndex].episodes[seasonIndex][episodeIndex].binged.toggle()
         saveToPersistentStore()
     }
 }
+
